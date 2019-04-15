@@ -1,10 +1,6 @@
-// A simple representation of graph using STL, 
-// for the purpose of competitive programming 
+
 #include<bits/stdc++.h> 
 using namespace std; 
-
-// A utility function to add an edge in an 
-// undirected graph. 
 void addEdge(vector<int> adj[], int u, int v) 
 { 
 	adj[u].push_back(v); 
@@ -28,21 +24,15 @@ void DFSUtil(int u, vector<int> adj[],
 void DFS(vector<int> adj[], int V) 
 { 
 	vector<bool> visited(V, false); 
-	//for (int u=0; u<V; u++) 
-		//if (visited[u] == false) 
-			DFSUtil(2, adj, visited); 
+	for (int u=0; u<V; u++) 
+		if (visited[u] == false) 
+			DFSUtil(u, adj, visited); 
 } 
 
 // Driver code 
 int main() 
 { 
 	int V = 4; 
-
-	// The below line may not work on all 
-	// compilers. If it does not work on 
-	// your compiler, please replace it with 
-	// following 
-	// vector<int> *adj = new vector<int>[V]; 
 	vector<int> adj[V]; 
 
     addEdge(adj,0, 1); 

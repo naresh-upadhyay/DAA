@@ -19,19 +19,18 @@ void findIndex(string s,string p,int (pre)[]){
         if(s[i]==p[j]){
             i++ ;
             j++;
-        }else{
-            if(j!=0){
-                k=pre[j-1];
-                k=pre[k];
-                j=pre[k];
-
-            }
-            i++;
-            //cout <<"t["<<i<<"]"<<" "<<"p["<<j<<"]"<<endl;
         }
-        if(j==p.length()-1){
+        if(j==p.length()){
             cout <<(i-j)<<" ";
-            j=0;
+            j=pre[j-1];
+        }else if(i<ssize && s[i]!=p[j]){
+            if(j!=0)
+                j=pre[j-1];
+            else
+            {
+                i++;
+            }
+            
         }
     }
 }
